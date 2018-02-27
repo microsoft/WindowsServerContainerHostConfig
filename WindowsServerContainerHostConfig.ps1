@@ -49,9 +49,9 @@ https://github.com/Microsoft/WindowsServerContainerHostConfig/blob/master/README
 configuration WindowsServerContainerHostConfig
 {
 
-Import-DscResource -ModuleName @{ModuleName = 'PackageManagement'; ModuleVersion = '1.1.7.0'}
 Import-DscResource -ModuleName @{ModuleName = 'xPendingReboot'; ModuleVersion = '0.3.0.0'}
 Import-DscResource -ModuleName @{ModuleName = 'xNetworking'; ModuleVersion = '5.5.0.0'}
+Import-DscResource -ModuleName 'PackageManagement'
 Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
 
     WindowsFeature Containers
