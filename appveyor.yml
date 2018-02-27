@@ -27,7 +27,7 @@ install:
 
         # Load required modules from gallery
         foreach ($module in $env:RequiredModules.split(',')) {
-            Install-Module $module -Repository PSGallery -Scope CurrentUser -Force
+            Install-Module $module -Repository PSGallery -Scope CurrentUser -AllowClobber -Force
         }
 build_script:
   - ps: |
