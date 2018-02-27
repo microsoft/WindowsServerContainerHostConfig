@@ -32,6 +32,7 @@ https://github.com/Microsoft/WindowsServerContainerHostConfig/blob/master/README
 
 #>
 
+#Requires -Module @{ModuleName = 'PackageManagement'; ModuleVersion = '1.1.7.0'}
 #Requires -Module @{ModuleName = 'xPendingReboot'; ModuleVersion = '0.3.0.0'}
 #Requires -Module @{ModuleName = 'xNetworking'; ModuleVersion = '5.5.0.0'}
 
