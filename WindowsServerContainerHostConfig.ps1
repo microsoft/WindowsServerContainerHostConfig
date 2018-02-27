@@ -34,6 +34,7 @@ https://github.com/Microsoft/WindowsServerContainerHostConfig/blob/master/README
 
 #Requires -Module @{ModuleName = 'PackageManagement'; ModuleVersion = '1.7.1.0'}
 #Requires -Module @{ModuleName = 'xPendingReboot'; ModuleVersion = '0.3.0.0'}
+#Requires -Module @{ModuleName = 'xNetworking'; ModuleVersion = '5.5.0.0'}
 
 <# 
 
@@ -51,6 +52,7 @@ configuration WindowsServerContainerHostConfig
 
 Import-DscResource -ModuleName @{ModuleName = 'PackageManagement'; ModuleVersion = '1.1.7.0'}
 Import-DscResource -ModuleName @{ModuleName = 'xPendingReboot'; ModuleVersion = '0.3.0.0'}
+Import-DscResource -ModuleName @{ModuleName = 'xNetworking'; ModuleVersion = '5.5.0.0'}
 Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
 
     WindowsFeature Containers
@@ -99,5 +101,16 @@ Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
         Name = 'DockerServiceandContainerFeature'
         SkipCcmClientSDK = $true
         DependsOn = '[WindowsFeature]Containers','[Service]Docker'
+    }
+
+    xFirewall Docker
+    {
+        Ensure = 'Present'
+        Name = 'Docker'
+        Enabled = 'True'
+        Action = 'Allow'
+        Profile = 'Public'
+        Service = 'Docker'
+        DependsOn = '[Service]Docker'
     }
 }
