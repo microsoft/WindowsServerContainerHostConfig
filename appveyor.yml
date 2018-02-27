@@ -2,7 +2,7 @@ version: 0.1.1.{build}
 clone_folder: c:\projects\$(APPVEYOR_PROJECT_NAME)
 environment:
   DiagnoseRG: $true
-  RequiredModules: "@{ModuleName = 'PackageManagement'; ModuleVersion = '1.1.7.0'},@{ModuleName = 'xPendingReboot'; ModuleVersion = '0.3.0.0'},@{ModuleName = 'xNetworking'; ModuleVersion = '5.5.0.0'}"
+  RequiredModules: "@{Name = 'PackageManagement'; RequiredVersion = '1.1.7.0'},@{Name = 'xPendingReboot'; RequiredVersion = '0.3.0.0'},@{Name = 'xNetworking'; RequiredVersion = '5.5.0.0'}"
   TestResultsUploadURI: https://ci.appveyor.com/api/testresults/nunit/$(APPVEYOR_JOB_ID)
   ApplicationID:
     secure: mHB9K9ItLkpdxUR7WgBnuBiBOl3qgJT1yizvFZDOgkRxvTV5KoZJ8QuAp+F+EbV0
@@ -27,7 +27,7 @@ install:
 
         # Load required modules from gallery
         foreach ($module in $env:RequiredModules.split(',')) {
-            Install-Module $module -Repository PSGallery -Scope CurrentUser -AllowClobber -Force
+            Install-Module @module -Repository PSGallery -Scope CurrentUser -AllowClobber -Force
         }
 build_script:
   - ps: |
