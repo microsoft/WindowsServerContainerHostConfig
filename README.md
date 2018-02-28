@@ -1,6 +1,6 @@
 # Windows Server Container Host Config
 
-[![Build status](https://ci.appveyor.com/api/projects/status/6x5i54oxvf69d79x/branch/master?svg=true)](https://ci.appveyor.com/project/mgreenegit/windowsservercontainerhostconfig/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/2179d3q3c1rw6vlu/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/windowsservercontainerhostconfig/branch/master)
 
 This DSC Configuration script is in PREVIEW
 as a minimal viable product.
